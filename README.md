@@ -20,3 +20,9 @@ Install dependencies
 cd <root>
 pip install -r requirements.txt
 ```
+
+Download the driver
+
+```
+export PATH=$PATH:/opt/WebDriver/bin >> ~/.zshrc
+```
