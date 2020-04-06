@@ -17,7 +17,8 @@ def get_links(row):
 
 url = 'http://www.apothekenindex.at'
 products = ['productListing-odd', 'productListing-even']
-results = pd.DataFrame(columns=['Name', 'Address', 'Tel', 'Fax'])
+results = pd.DataFrame(
+    columns=['Name', 'Address', 'Tel', 'Fax', 'Email', 'Schedule'])
 options = Options()
 options.page_load_strategy = 'eager'
 # options.set_headless(False)
@@ -64,8 +65,6 @@ fax_re = re.compile(r'Fax\:\s{0,}(.*)')
 email_re = re.compile(r'mailto\:(.*)')
 address_condition = "//*[text()='Adresse']//following::p"
 contact_condition = "//*[text()='Kontakt']//following::p"
-results = pd.DataFrame(
-    columns=['Name', 'Address', 'Tel', 'Fax', 'Email', 'Schedule'])
 
 for pharmacy in pharmacies_links:
     # driver.get(pharmacy)
@@ -141,12 +140,3 @@ for pharmacy in pharmacies_links:
         print(e)
 
     results.loc[len] = [name, address, tel, fax, email, schedule]
-
-h = len(results)
-h
-results.iloc[h-1]
-len(pharmacies_links)
-
-
-pharmacies_links[1387]
-results
