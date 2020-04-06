@@ -15,7 +15,7 @@ The project itself is not really complicated to code, however, this page was dev
 Clone the repository
 
 ```
-<>
+git clone 
 ```
 
 Install dependencies
@@ -25,8 +25,19 @@ cd <root>
 pip install -r requirements.txt
 ```
 
-Add the driver to the PATH
+I have added the webdriver-manager which will handle the process of adding the driver to the path and download the right version, howerver in case you need to use your own driver, I should be added to the path
 
 ```
-export PATH=$PATH:/opt/WebDriver/bin >> ~/.zshrc
+echo "export PATH=\$PATH:<driver_path>" >> ~/.zshr
+source  ~/.zshr
 ```
+
+Run the program
+
+```
+python scrapper.py
+```
+
+By default it will try to load the saved information and compare if all the links are already in the csv file, if you don't want this validation, feel free to delete `data/results.csv`
+
+
