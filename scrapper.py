@@ -18,7 +18,7 @@ def get_links(row):
 url = 'http://www.apothekenindex.at'
 products = ['productListing-odd', 'productListing-even']
 results = pd.DataFrame(
-    columns=['Name', 'Address', 'Tel', 'Fax', 'Email', 'Schedule'])
+    columns=['Name', 'Address', 'Tel', 'Fax', 'Email', 'Schedule', 'Link'])
 options = Options()
 options.page_load_strategy = 'eager'
 # options.set_headless(False)
@@ -139,4 +139,4 @@ for pharmacy in pharmacies_links:
         print(pharmacy, ': No Schedule')
         print(e)
 
-    results.loc[len] = [name, address, tel, fax, email, schedule]
+    results.loc[len] = [name, address, tel, fax, email, schedule, pharmacy]
